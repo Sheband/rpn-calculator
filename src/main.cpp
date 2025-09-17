@@ -8,7 +8,7 @@ int main() {
     std::getline(std::cin, expression);
 
 
-
+  
     // Удаляем возможные пробелы в начале и конце
     size_t start = expression.find_first_not_of(" \t");
     if (start == std::string::npos) {
