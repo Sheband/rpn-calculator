@@ -47,18 +47,21 @@ double evaluate_rpn(const std::string& expression) {
     std::vector<std::string> tokens = tokenize(expression);
     double a, b;
     
-    for (const auto& token : tokens) {
+    for (const auto& token : tokens) { 
         if (is_number(token)) {
             // Преобразуем строку в число и помещаем в стек
             stack.push(std::stod(token));
         } else {
             // Обрабатываем оператор
-            if (token == "++"){
+            if (token == "dup"){
+                a = stack.top();
+                stack.push(a);
+
+            } else if (token == "++"){
                 a = stack.top(); stack.pop();
                 a++;
                 stack.push(a);
-            }
-            else{
+            }else{
             
                 if (stack.size() < 2) {
                     throw std::invalid_argument("Not enough operands for operator '" + token + "'");
