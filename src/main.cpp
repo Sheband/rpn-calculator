@@ -1,11 +1,13 @@
 #include <iostream>
 #include "rpn.h"
 #include <stdexcept>
-int main() {
-    std::string expression;
-    std::cout << "Enter RPN expression: ";
 
+
+int main() {
+    std::string expression = "2 2 +";
+    std::cout << "Enter RPN expression! ";
     std::getline(std::cin, expression);
+    
 
 
   
@@ -15,6 +17,7 @@ int main() {
         std::cout << "Empty expression" << std::endl;
         return 0;
     }
+
     size_t end = expression.find_last_not_of(" \t");
     expression = expression.substr(start, end - start + 1);
     if (expression.empty()) {
